@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Edit Task
+{% endblock %}
+
+{% block content %}
+    <h1>Edit Task</h1>
+    <form method="POST" action="{{ url_for('edit', task_id=task[0]) }}">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" value="{{ task[1] }}"><br>
+
+        <label for="task_name">Task Name:</label>
+        <input type="text" id="task_name" name="task_name" value="{{ task[2] }}"><br>
+
+        <label for="priority">Priority:</label>
+        <input type="text" id="priority" name="priority" value="{{ task[3] }}"><br>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="{{ task[4] }}"><br>
+
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}

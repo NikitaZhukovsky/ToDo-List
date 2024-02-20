@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="title">Task Manager - Create Task</h1>
+        <form action="/create" method="POST">
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="task_name">Task Name:</label>
+                <input type="text" id="task_name" name="task_name" required class="input-field">
+            </div>
+            <div class="form-group">
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority" class="input-field">
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" class="input-field">
+                    <option value="Not Completed">Not Completed</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create Task" class="submit-button">
+            </div>
+        </form>
+    </div>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 5px #0066cc;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-button:hover {
+            background-color: #0052a3;
+        }
+    </style>
+{% endblock %}

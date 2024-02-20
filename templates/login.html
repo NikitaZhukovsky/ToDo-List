@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="text-align: center;">ToDo</h1>
+    {% if error %}
+    <p style="text-align: center; color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="/login" method="POST" style="display: flex; flex-direction: column; align-items: center;">
+        <label for="username" style="text-align: center; margin-bottom: 5px; font-weight: bold;">Username:</label>
+        <input type="text" id="username" name="username" required style="width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+        <label for="password" style="text-align: center; margin-bottom: 5px; font-weight: bold;">Password:</label>
+        <input type="password" id="password" name="password" required style="width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"><br>
+        <input type="submit" value="Sign In" style="background-color: #4CAF50; color: white; cursor: pointer; border-radius: 20px; padding: 10px 20px; margin-top: 10px;">
+    </form>
+    <p style="text-align: center;">Don't have an account? <a href="/register">Sign Up</a></p>
+{% endblock %}

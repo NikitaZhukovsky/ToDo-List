@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="title">ToDo</h1>
+        <h2 class="subtitle">Tasks List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr class="row-animation">
+                    <td>{{ task[1] }}</td>
+                    <td>{{ task[2] }}</td>
+                    <td>{{ task[3] }}</td>
+                    <td>{{ task[4] }}</td>
+                    <td>{{ task[5] }}</td>
+                  <td>
+    <div class="button-container">
+        <form method="POST" action="{{ url_for('edit', task_id=task[0]) }}" style="display: inline;">
+            <button type="submit" class="button edit-button">Edit</button>
+        </form>
+        <form method="POST" action="{{ url_for('delete', task_id=task[0]) }}" style="display: inline;">
+            <button type="submit" class="button delete-button">Delete</button>
+        </form>
+    </div>
+</td>
+</tr>
+</tr>
+</tr>
+
+</tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+                .button {
+            padding: 5px 10px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.edit-button {
+    background-color: #40E0D0;
+}
+
+.edit-button:hover {
+    background-color: #000000;
+}
+
+.delete-button {
+    background-color: #FA8072;
+}
+
+.delete-button:hover {
+    background-color: #cc0000;
+}
+        .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.row-animation {
+    animation: showRow 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes showRow {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+{% endblock %}
